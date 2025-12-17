@@ -1,5 +1,7 @@
 using Infrastructure.Interfaces;
 
+namespace Test.Fake;
+
 public sealed class FakeStorageService : IStorageService
 {
     public Task<List<Uri>> GetTemporaryUrlsAsync(List<string> fileNames)

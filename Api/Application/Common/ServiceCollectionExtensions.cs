@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using Amazon.S3;
+using Client.Models.Models.Configs;
 using Infrastructure.Api;
 using Infrastructure.DataAccess;
 using Infrastructure.Interfaces;
@@ -9,7 +10,6 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using Npgsql;
-using Shared.Models.Configs;
 
 namespace Api.Application.Common;
 

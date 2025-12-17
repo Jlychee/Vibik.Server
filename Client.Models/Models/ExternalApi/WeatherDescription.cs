@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace Shared.Models.ExternalApi;
+namespace Client.Models.Models.ExternalApi;
 
 public class WeatherDescription
 {

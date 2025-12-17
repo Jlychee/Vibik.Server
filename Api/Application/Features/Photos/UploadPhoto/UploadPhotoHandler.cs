@@ -1,9 +1,9 @@
 ﻿using Amazon.S3;
 using Amazon.S3.Model;
+using Client.Models.Models.Configs;
 using ImageMagick;
 using MediatR;
 using Microsoft.Extensions.Options;
-using Shared.Models.Configs;
 
 namespace Api.Application.Features.Photos.UploadPhoto;
 

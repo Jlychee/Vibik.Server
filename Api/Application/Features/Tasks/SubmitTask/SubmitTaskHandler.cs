@@ -1,7 +1,7 @@
 ﻿using Api.Application.Features.Photos.UploadPhoto;
+using Client.Models.Models.Enums;
 using Infrastructure.Interfaces;
 using MediatR;
-using Shared.Models.Enums;
 
 namespace Api.Application.Features.Tasks.SubmitTask;
 

@@ -1,8 +1,8 @@
-﻿using Api.Application.Common.Results;
+﻿using Client.Models.Models.Common.Results;
+using Client.Models.Models.Configs;
+using Client.Models.Models.ExternalApi;
 using Infrastructure.Interfaces;
 using Microsoft.Extensions.Options;
-using Shared.Models.Configs;
-using Shared.Models.ExternalApi;
 
 namespace Infrastructure.Api;
 

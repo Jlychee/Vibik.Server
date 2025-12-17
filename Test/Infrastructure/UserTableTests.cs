@@ -1,10 +1,8 @@
-using Dapper;
 using Infrastructure.Interfaces;
 using InterpolatedSql.Dapper;
 using Microsoft.Extensions.DependencyInjection;
-using NUnit.Framework;
-using Shared.Models.Entities;
-using Test;
+
+namespace Test.Infrastructure;
 
 [TestFixture]
 public class UserTableTests : TestBase

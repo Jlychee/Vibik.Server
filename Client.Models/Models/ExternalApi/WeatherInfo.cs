@@ -1,4 +1,4 @@
-﻿namespace Shared.Models.ExternalApi;
+﻿namespace Client.Models.Models.ExternalApi;
 
 public class WeatherInfo
 {

@@ -1,4 +1,4 @@
-﻿namespace Api.Application.Common.Results;
+﻿namespace Client.Models.Models.Common.Results;
 
 public readonly record struct Error(string Code, string Message);
 

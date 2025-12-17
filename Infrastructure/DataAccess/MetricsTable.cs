@@ -1,9 +1,9 @@
+using Client.Models.Models.Entities;
+using Client.Models.Models.Enums;
 using Infrastructure.Interfaces;
 using InterpolatedSql.Dapper;
 using Microsoft.Extensions.Logging;
 using Npgsql;
-using Shared.Models.Entities;
-using Shared.Models.Enums;
 
 namespace Infrastructure.DataAccess;
 

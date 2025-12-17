@@ -1,10 +1,9 @@
-using Dapper;
+using Client.Models.Models.Enums;
 using Infrastructure.Interfaces;
-using Microsoft.Extensions.DependencyInjection;
 using InterpolatedSql.Dapper;
-using NUnit.Framework;
-using Shared.Models.Enums;
-using Test;
+using Microsoft.Extensions.DependencyInjection;
+
+namespace Test.Infrastructure;
 
 [TestFixture]
 public class UsersTasksTableTests : TestBase

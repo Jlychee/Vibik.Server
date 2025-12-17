@@ -1,5 +1,5 @@
+using Client.Models.Models.Entities;
 using Infrastructure.Interfaces;
-using Shared.Models.Entities;
 
 namespace Infrastructure.DbExtensions;
 

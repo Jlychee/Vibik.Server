@@ -1,8 +1,5 @@
 using Api.Application.Common;
 using Api.Middlewares;
-using Infrastructure.Interfaces;
-using Infrastructure.Security;
-using Shared.Models.Configs;
 
 
 var builder = WebApplication.CreateBuilder(args);
