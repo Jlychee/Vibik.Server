@@ -5,7 +5,7 @@ using Shared.Models.Enums;
 
 namespace Api.Application.Features.Tasks.ChangeTask;
 
-public class ChangeTaskHandler(IUsersTasksTable tasks, IUserTable users, IMetricsTable metrics)
+public class ChangeTaskHandler(IUsersTasksTable tasks, IUserTable users, IMetricsTable metrics, ITaskEvent taskEvent)
     : IRequestHandler<ChangeTaskQuery, TaskModel>
 {
     private const double Coefficient = 0.2;
@@ -14,10 +14,10 @@ public class ChangeTaskHandler(IUsersTasksTable tasks, IUserTable users, IMetric
     {
         var username = request.Username;
         var taskId = request.TaskId;
-
-        var newTask = await tasks.ChangeUserTask(taskId);
+        //TODO потом перепишу и это надо в service
+        var newTask = await taskEvent.ChangeUserTask(taskId);
         var reward = tasks.GetReward(taskId);
-        await users.ChangeMoney(taskId, -(int)(reward.Result * Coefficient));
+        await users.AddMoney(username, -(int)(reward.Result * Coefficient));
 
         await metrics.AddRecord(username, MetricType.Change);
         return newTask;
