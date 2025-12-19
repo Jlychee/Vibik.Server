@@ -1,7 +1,7 @@
 ﻿using Api.Application.Common.Exceptions;
+using Client.Models.Models.Entities;
 using Infrastructure.Interfaces;
 using MediatR;
-using Shared.Models.Entities;
 
 namespace Api.Application.Features.Tasks.GetTask;
 
@@ -12,6 +12,6 @@ public class GetTaskHandler(IUsersTasksTable tasks) : IRequestHandler<GetTaskQue
         var task = await tasks.GetTaskFullInfo(request.TaskId);
         return task ??
                throw new ApiException(StatusCodes.Status404NotFound,
-                   $"Task {request.TaskId} for {request.Username} not found");
+                   $"Задача {request.TaskId} для пользователя {request.Username} не найдена");
     }
 }

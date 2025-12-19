@@ -1,7 +1,6 @@
 using Dapper;
-using Npgsql;
-using NUnit.Framework;
-using Test;
+
+namespace Test.Infrastructure;
 
 [TestFixture]
 public class DbSmokeTests : TestBase

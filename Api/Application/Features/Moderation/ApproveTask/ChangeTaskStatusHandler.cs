@@ -1,7 +1,6 @@
-using Infrastructure.DataAccess;
+using Client.Models.Models.Enums;
 using Infrastructure.Interfaces;
 using MediatR;
-using Shared.Models.Enums;
 
 namespace Api.Application.Features.Moderation.ApproveTask;
 
@@ -14,7 +13,7 @@ public class ChangeTaskStatusHandler(IUsersTasksTable tasks, IUserTable users)
         var reward = await tasks.GetReward(request.UserTaskId);
         if (request.Status == ModerationStatus.Approved)
         {
-            await users.AddMoney(user.Username, reward);
+            await users.AddMoney(user!.Username, reward);
             if ((user.Experience + 1) % 5 == 0)
             {
                 await users.AddLevel(user.Username, 1);

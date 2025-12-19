@@ -1,4 +1,4 @@
-﻿namespace Shared.Models.Entities;
+﻿namespace Client.Models.Models.Entities;
 
 public class ModerationTask
 {

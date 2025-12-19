@@ -1,5 +1,5 @@
-﻿using MediatR;
-using Shared.Models.Entities;
+﻿using Client.Models.Models.Entities;
+using MediatR;
 
 namespace Api.Application.Features.Tasks.GetTask;
 

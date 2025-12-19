@@ -1,4 +1,4 @@
-﻿using Api.Application.Common.Results;
+﻿using Client.Models.Models.Common.Results;
 
 namespace Api.Application.Common.Exceptions;
 

@@ -1,5 +1,5 @@
-using Shared.Models.Entities;
-using Shared.Models.Enums;
+using Client.Models.Models.Entities;
+using Client.Models.Models.Enums;
 
 namespace Infrastructure.Interfaces;
 

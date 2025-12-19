@@ -1,5 +1,5 @@
-﻿using Api.Application.Common.Results;
-using Shared.Models.ExternalApi;
+﻿using Client.Models.Models.Common.Results;
+using Client.Models.Models.ExternalApi;
 
 namespace Infrastructure.Interfaces;
 

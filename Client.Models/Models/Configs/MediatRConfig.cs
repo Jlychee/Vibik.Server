@@ -1,4 +1,4 @@
-﻿namespace Shared.Models.Configs;
+﻿namespace Client.Models.Models.Configs;
 
 public class MediatRConfig
 {

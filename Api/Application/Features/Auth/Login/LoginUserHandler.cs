@@ -1,7 +1,7 @@
 using Api.Application.Common.Exceptions;
+using Client.Models.Models.DTO.Response;
 using Infrastructure.Interfaces;
 using MediatR;
-using Shared.Models.DTO.Response;
 
 namespace Api.Application.Features.Auth.Login;
 
@@ -20,6 +20,6 @@ public class LoginUserHandler(IUserTable users, ITokenService tokenService)
         if (loginStatus)
             return new LoginUserResponse(tokenService.GenerateAccessToken(username),
                 tokenService.GenerateRefreshToken(username));
-        throw new ApiException(StatusCodes.Status401Unauthorized, "Incorrect password or username");
+        throw new ApiException(StatusCodes.Status401Unauthorized, "Неверный логин или пароль");
     }
 }

@@ -1,6 +1,6 @@
-using Shared.Models.Enums;
+using Client.Models.Models.Enums;
 
-namespace Shared.Models.Entities;
+namespace Client.Models.Models.Entities;
 
 public class MetricModel
 {

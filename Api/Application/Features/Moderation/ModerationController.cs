@@ -2,10 +2,10 @@
 using Api.Application.Features.Moderation.CheckModerator;
 using Api.Application.Features.Moderation.GetModerationStatus;
 using Api.Application.Features.Moderation.GetNextForModeration;
+using Client.Models.Models.Enums;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Shared.Models.Enums;
 
 namespace Api.Application.Features.Moderation;
 

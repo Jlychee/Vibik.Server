@@ -1,11 +1,12 @@
 using Api.Application.Features.Metrics.GetMetrics;
+using Client.Models.Models.Enums;
 
 namespace Api.Application.Features.Metrics;
 
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Shared.Models.Enums;
+
 [ApiController]
 [Route("api/")]
 public class MetricsController(

@@ -1,6 +1,6 @@
-﻿using Infrastructure.Interfaces;
-using Shared.Models.Entities;
-using Shared.Models.Enums;
+﻿using Client.Models.Models.Entities;
+using Client.Models.Models.Enums;
+using Infrastructure.Interfaces;
 
 namespace Infrastructure.Mocks;
 

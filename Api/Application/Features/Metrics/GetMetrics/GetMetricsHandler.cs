@@ -1,6 +1,6 @@
+using Client.Models.Models.Entities;
 using Infrastructure.Interfaces;
 using MediatR;
-using Shared.Models.Entities;
 
 namespace Api.Application.Features.Metrics.GetMetrics;
 

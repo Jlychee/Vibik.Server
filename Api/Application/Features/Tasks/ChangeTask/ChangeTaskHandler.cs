@@ -1,7 +1,7 @@
-﻿using Infrastructure.Interfaces;
+﻿using Client.Models.Models.Entities;
+using Client.Models.Models.Enums;
+using Infrastructure.Interfaces;
 using MediatR;
-using Shared.Models.Entities;
-using Shared.Models.Enums;
 
 namespace Api.Application.Features.Tasks.ChangeTask;
 
@@ -20,6 +20,6 @@ public class ChangeTaskHandler(IUsersTasksTable tasks, IUserTable users, IMetric
         await users.AddMoney(username, -(int)(reward.Result * Coefficient));
 
         await metrics.AddRecord(username, MetricType.Change);
-        return newTask;
+        return newTask!;
     }
 }
