@@ -10,6 +10,6 @@ public class TaskModel
     public TaskModelExtendedInfo ExtendedInfo { get; set; }
     
     
-    private const double Coefficient = 0.2;
+    private const double Coefficient = 0.5;
     public int Swap => (int)(Reward * Coefficient);
 }
