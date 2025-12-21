@@ -7,6 +7,7 @@ using Infrastructure.DataAccess;
 using Infrastructure.Interfaces;
 using Infrastructure.Security;
 using Infrastructure.Services;
+using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
@@ -30,6 +31,8 @@ public static class ServiceCollectionExtensions
             client.Timeout = TimeSpan.FromSeconds(30);
         });
     
+        builder.Services.AddTransient<IRequestHandler<SubmitTaskQuery, List<string>>, SubmitTaskHandler>();
+        
         return builder;
     }
     
