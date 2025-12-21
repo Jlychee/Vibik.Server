@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using Amazon.S3;
+using Api.Application.Features.Tasks.SubmitTask;
 using Client.Models.Models.Configs;
 using Infrastructure.Api;
 using Infrastructure.DataAccess;
@@ -15,6 +16,23 @@ namespace Api.Application.Common;
 
 public static class ServiceCollectionExtensions
 {
+    public static WebApplicationBuilder AddHttpServices(this WebApplicationBuilder builder)
+    {
+        builder.Services.AddHttpClient();
+    
+        var moderationHost = builder.Configuration["MODERATION_HOST"];
+        if (string.IsNullOrEmpty(moderationHost))
+            throw new InvalidOperationException("MODERATION_HOST не настроен в .env");
+        
+        builder.Services.AddHttpClient<SubmitTaskHandler>(client =>
+        {
+            client.BaseAddress = new Uri(moderationHost);
+            client.Timeout = TimeSpan.FromSeconds(30);
+        });
+    
+        return builder;
+    }
+    
     public static WebApplicationBuilder AddApplicationServices(this WebApplicationBuilder builder)
     {
         builder.Services.AddMediatR(cfg =>

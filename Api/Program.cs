@@ -13,7 +13,8 @@ builder
     .AddInfrastructureServices(builder.Configuration)
     .AddWeatherServices()
     .AddSwaggerWithAuth()
-    .ConfigureWithCertificate();
+    .ConfigureWithCertificate()
+    .AddHttpServices();
 
 
 builder.Services.AddControllers();
