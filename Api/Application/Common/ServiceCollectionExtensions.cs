@@ -20,19 +20,6 @@ public static class ServiceCollectionExtensions
     public static WebApplicationBuilder AddHttpServices(this WebApplicationBuilder builder)
     {
         builder.Services.AddHttpClient();
-    
-        var moderationHost = builder.Configuration["MODERATION_HOST"];
-        if (string.IsNullOrEmpty(moderationHost))
-            throw new InvalidOperationException("MODERATION_HOST не настроен в .env");
-        
-        builder.Services.AddHttpClient<SubmitTaskHandler>(client =>
-        {
-            client.BaseAddress = new Uri(moderationHost);
-            client.Timeout = TimeSpan.FromSeconds(30);
-        });
-    
-        builder.Services.AddTransient<IRequestHandler<SubmitTaskQuery, List<string>>, SubmitTaskHandler>();
-        
         return builder;
     }
     
