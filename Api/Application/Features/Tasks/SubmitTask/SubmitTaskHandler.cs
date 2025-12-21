@@ -32,12 +32,23 @@ public class SubmitTaskHandler(
 
         await metrics.AddRecord(username, MetricType.Submit);
 
-        var moderationHost = configuration["MODERATION_HOST"]?.Trim() 
-                          ?? throw new InvalidOperationException("MODERATION_HOST не настроен в .env");
+        var moderationHost = configuration["MODERATION_HOST"]?.Trim()
+                             ?? throw new InvalidOperationException("MODERATION_HOST не настроен в .env");
+
+        var moderatorIdsEnv = configuration["MODERATOR_IDS"]?.Trim()
+                              ?? throw new InvalidOperationException("MODERATOR_IDS не настроен в .env");
+
+        var moderatorIds = moderatorIdsEnv
+            .Split(',', StringSplitOptions.RemoveEmptyEntries)
+            .Select(id => int.Parse(id.Trim()))
+            .ToArray();
+
+        logger.LogInformation("Отправляем уведомления модераторам");
         
-        var payload = new { moderator_ids = new[] { 1181814783, 1338914722, 875877003, 946887384 } };
+        var payload = new { moderator_ids = moderatorIds };
         var response = await httpClient.PostAsJsonAsync(
-            $"{moderationHost}/api/moderation/notify", payload, cancellationToken);        response.EnsureSuccessStatusCode();
+            $"{moderationHost}/api/moderation/notify", payload, cancellationToken);
+        response.EnsureSuccessStatusCode();
 
         return uploadedNames;
     }
