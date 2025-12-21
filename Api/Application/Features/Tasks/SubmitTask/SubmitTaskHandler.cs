@@ -28,8 +28,6 @@ public class SubmitTaskHandler(IUsersTasksTable tasks, IMetricsTable metrics, IM
         
          var payload = new { moderator_ids = new[] { 1181814783,1338914722,875877003, 946887384} };
          var response = await httpClient.PostAsJsonAsync("/api/moderation/notify", payload, cancellationToken);
-         logger.LogInformation("SubmitTaskHandler.Handle() response: {response}", response);
-        
          response.EnsureSuccessStatusCode();
         
         return uploadedNames;
