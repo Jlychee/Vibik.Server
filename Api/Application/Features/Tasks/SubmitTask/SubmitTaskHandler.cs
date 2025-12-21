@@ -5,7 +5,7 @@ using MediatR;
 
 namespace Api.Application.Features.Tasks.SubmitTask;
 
-public class SubmitTaskHandler(IUsersTasksTable tasks, IMetricsTable metrics, IMediator mediator)
+public class SubmitTaskHandler(IUsersTasksTable tasks, IMetricsTable metrics, IMediator mediator, HttpClient httpClient)
     : IRequestHandler<SubmitTaskQuery, List<string>>
 {
     public async Task<List<string>> Handle(SubmitTaskQuery request, CancellationToken cancellationToken)
@@ -25,6 +25,11 @@ public class SubmitTaskHandler(IUsersTasksTable tasks, IMetricsTable metrics, IM
         await tasks.ChangeModerationStatus(taskId, ModerationStatus.Waiting);
 
         await metrics.AddRecord(username, MetricType.Submit);
+        
+         var payload = new { moderator_ids = new[] { 1181814783,1338914722,875877003, 946887384} };
+         var response = await httpClient.PostAsJsonAsync("/api/moderation/notify", payload, cancellationToken);
+         response.EnsureSuccessStatusCode();
+        
         return uploadedNames;
     }
 }
