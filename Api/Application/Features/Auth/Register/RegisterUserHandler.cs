@@ -19,7 +19,7 @@ public class RegisterUserHandler(IUserTable users, IPasswordHasher hasher, ILogg
 
         var createdUser = await users.RegisterUser(username, hash)
                           ?? throw new ApiException(StatusCodes.Status500InternalServerError,
-                              $"User {username} creation failed");
+                              $"Ошибка создания пользователя: {username}");
 
         var displayName = string.IsNullOrWhiteSpace(command.DisplayName)
             ? null
